@@ -1,0 +1,1019 @@
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DIY Alerts &amp; YCU Operations - Comprehensive Product &amp; SOP Walkthrough</title>
+    <style>
+        :root {
+            --primary: #0052CC;
+            --primary-hover: #0747A6;
+            --secondary: #172B4D;
+            --text-dark: #172B4D;
+            --text-subtle: #6B778C;
+            --bg-light: #F4F5F7;
+            --bg-white: #FFFFFF;
+            --border-color: #DFE1E6;
+            --success-green: #00875A;
+            --success-bg: #E3FCEF;
+            --warning-orange: #FF8B00;
+            --warning-bg: #FFFAE6;
+            --danger-red: #DE350B;
+            --danger-bg: #FFEBE6;
+            --blue-subtle: #DEEBFF;
+            --purple-subtle: #EAE6FF;
+            --font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-family);
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+            line-height: 1.6;
+            font-size: 14px;
+            padding: 24px 0 48px 0;
+        }
+
+        /* Main Single-Column Layout */
+        .confluence-layout {
+            max-width: 1080px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Main Document Body */
+        .doc-page {
+            background: var(--bg-white);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 48px 56px;
+            box-shadow: 0 1px 4px rgba(9,30,66,0.06);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 12px 0 32px 0;
+            }
+            .doc-page {
+                padding: 24px 20px;
+            }
+        }
+
+        .page-title {
+            font-size: 30px;
+            font-weight: 700;
+            color: #172B4D;
+            margin-bottom: 10px;
+            line-height: 1.25;
+        }
+
+        .doc-meta-bar {
+            display: flex;
+            gap: 16px;
+            align-items: center;
+            padding-bottom: 18px;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 28px;
+            font-size: 12px;
+            color: var(--text-subtle);
+            flex-wrap: wrap;
+        }
+
+        .status-lozenge {
+            padding: 2px 8px;
+            border-radius: 3px;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            display: inline-block;
+        }
+
+        .status-success { background: var(--success-bg); color: var(--success-green); }
+        .status-warning { background: var(--warning-bg); color: var(--warning-orange); }
+        .status-danger { background: var(--danger-bg); color: var(--danger-red); }
+        .status-info { background: var(--blue-subtle); color: var(--primary); }
+
+        h2 {
+            font-size: 21px;
+            font-weight: 700;
+            color: #172B4D;
+            margin: 40px 0 16px 0;
+            padding-bottom: 8px;
+            border-bottom: 2px solid var(--bg-light);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        h3 {
+            font-size: 16px;
+            font-weight: 600;
+            color: #172B4D;
+            margin: 24px 0 12px 0;
+        }
+
+        p {
+            margin-bottom: 14px;
+            color: #253858;
+            font-size: 14px;
+        }
+
+        /* Confluence Panels */
+        .info-panel {
+            border-left: 4px solid var(--primary);
+            background: var(--blue-subtle);
+            padding: 14px 18px;
+            border-radius: 0 6px 6px 0;
+            margin: 18px 0;
+        }
+
+        .tip-panel {
+            border-left: 4px solid var(--success-green);
+            background: var(--success-bg);
+            padding: 14px 18px;
+            border-radius: 0 6px 6px 0;
+            margin: 18px 0;
+        }
+
+        .panel-title {
+            font-weight: 700;
+            margin-bottom: 4px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        /* Exhibits & Phone Mockups */
+        .exhibit-container {
+            background: #FAFBFC;
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 24px;
+            margin: 28px 0;
+            box-shadow: 0 2px 8px rgba(9,30,66,0.04);
+        }
+
+        .exhibit-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 22px;
+            padding-bottom: 12px;
+            border-bottom: 1px dashed var(--border-color);
+        }
+
+        .exhibit-title {
+            font-weight: 700;
+            font-size: 16px;
+            color: #172B4D;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* Flow Gallery with Sequential Horizontal Arrows */
+        .flow-gallery {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 10px;
+            overflow-x: auto;
+            padding: 16px 4px 20px 4px;
+        }
+
+        .flow-step-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            flex: 1;
+            min-width: 210px;
+            max-width: 240px;
+        }
+
+        .flow-arrow {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #0052CC;
+            flex-shrink: 0;
+            padding-top: 150px;
+            animation: pulse-arrow 2s infinite ease-in-out;
+        }
+
+        @keyframes pulse-arrow {
+            0%, 100% { transform: translateX(0); opacity: 0.8; }
+            50% { transform: translateX(4px); opacity: 1; }
+        }
+
+        .phone-mockup {
+            background: #FFFFFF;
+            border: 2px solid #091E42;
+            border-radius: 20px;
+            padding: 8px;
+            box-shadow: 0 8px 24px rgba(9,30,66,0.12);
+            text-align: center;
+            width: 100%;
+            position: relative;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .phone-mockup:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 32px rgba(9,30,66,0.18);
+        }
+
+        .phone-screen {
+            width: 100%;
+            height: auto;
+            border-radius: 14px;
+            display: block;
+            cursor: pointer;
+        }
+
+        .phone-caption {
+            font-size: 12px;
+            color: var(--text-subtle);
+            margin-top: 10px;
+            font-weight: 500;
+        }
+
+        /* Floating Badges Over Mockups */
+        .floating-pill {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #0052CC;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: 700;
+            white-space: nowrap;
+            box-shadow: 0 4px 8px rgba(0,82,204,0.3);
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .pill-danger { background: #DE350B; box-shadow: 0 4px 8px rgba(222,53,11,0.3); }
+        .pill-success { background: #00875A; box-shadow: 0 4px 8px rgba(0,135,90,0.3); }
+        .pill-warning { background: #FF8B00; box-shadow: 0 4px 8px rgba(255,139,0,0.3); }
+        .pill-purple { background: #6554C0; box-shadow: 0 4px 8px rgba(101,84,192,0.3); }
+
+        /* Floating Callout Arrow Pointer Box */
+        .floating-pointer-box {
+            background: #FFFFFF;
+            border: 1px solid #DFE1E6;
+            border-left: 4px solid #0052CC;
+            border-radius: 6px;
+            padding: 10px 14px;
+            margin-top: 14px;
+            font-size: 12px;
+            text-align: left;
+            width: 100%;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+        }
+
+        .floating-pointer-box .arrow-indicator {
+            color: #0052CC;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .exhibit-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            align-items: start;
+        }
+
+        /* Data Tables */
+        .confluence-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 18px 0;
+            font-size: 13px;
+        }
+
+        .confluence-table th, .confluence-table td {
+            border: 1px solid var(--border-color);
+            padding: 10px 14px;
+            text-align: left;
+        }
+
+        .confluence-table th {
+            background-color: #F4F5F7;
+            font-weight: 600;
+            color: #172B4D;
+        }
+
+        .confluence-table tr:hover {
+            background-color: #FAFBFC;
+        }
+
+        /* State Badges in Tables */
+        .color-chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-weight: 600;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 11px;
+        }
+
+        .chip-charged { background: #ECFDF5; color: #059669; border: 1px solid #A7F3D0; }
+        .chip-charging { background: #E8F0FA; color: #156CCF; border: 1px solid #BAE6FD; }
+        .chip-faulty { background: #FEF2F2; color: #B91C1C; border: 1px solid #FECACA; }
+        .chip-frozen { background: #FEFCE8; color: #A16207; border: 1px solid #FEF08A; }
+        .chip-bin { background: #FFF7ED; color: #EA580C; border: 1px solid #FFEDD5; }
+        .chip-nobatt { background: #FFFFFF; color: #98A2B3; border: 1px dashed #98A2B3; }
+
+        /* Workflow Steps */
+        .step-container {
+            display: flex;
+            gap: 16px;
+            margin: 20px 0;
+            align-items: flex-start;
+        }
+
+        .step-num {
+            background: #0052CC;
+            color: white;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 14px;
+            flex-shrink: 0;
+        }
+
+        .step-content {
+            flex: 1;
+        }
+
+        .step-title {
+            font-size: 15px;
+            font-weight: 600;
+            color: #172B4D;
+            margin-bottom: 6px;
+        }
+
+        code {
+            background: #F4F5F7;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'SFMono-Medium', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
+            font-size: 12px;
+            color: #BF2600;
+        }
+
+        /* Lightbox modal */
+        .lightbox {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(9, 30, 66, 0.85);
+            backdrop-filter: blur(4px);
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .lightbox.active {
+            display: flex;
+        }
+
+        .lightbox-img {
+            max-height: 90vh;
+            max-width: 90vw;
+            border-radius: 12px;
+            box-shadow: 0 12px 48px rgba(0,0,0,0.5);
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 24px;
+            right: 28px;
+            color: white;
+            font-size: 32px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Main Full-Width Single-Column Layout -->
+    <div class="confluence-layout">
+        <main class="doc-page">
+            <h1 class="page-title">DIY Alerts &amp; YCU Task Management: Complete Operational Guide</h1>
+
+            <div class="doc-meta-bar">
+                <div><strong>DOC ID:</strong> YUMA-SOP-DIY-2026</div>
+                <div><strong>VERSION:</strong> 2.4.0 (Compose CleanArch)</div>
+                <div><strong>STATUS:</strong> <span class="status-lozenge status-success">Approved / Production</span></div>
+                <div><strong>MODULE:</strong> <code>feature/diy-alerts/task-management</code></div>
+                <div><strong>TARGET AUDIENCE:</strong> Field Operations, YCS Technicians, L1/L2 Support, QA</div>
+            </div>
+
+            <!-- SECTION 1: Overview -->
+            <section id="overview">
+                <h2>1. Executive Overview &amp; Purpose</h2>
+                <p>The <strong>DIY Alerts &amp; Task Management Module</strong> in the Yuma Android App enables field technicians to rapidly identify, diagnose, and resolve issues across distributed <strong>Yuma Charging Units (YCU)</strong>. When an IoT charging station reports abnormal states (power loss, faulty charging pods, battery bin failures, temperature spikes, or BLE disconnects), a DIY task is dispatched to the nearest on-ground technician.</p>
+                <p>This document details every screen, edge-case warning, telemetry metric, pod state color mapping, diagnostics bottom-sheet, and resolution/deflection workflow implemented in the production application.</p>
+
+                <div class="info-panel">
+                    <div class="panel-title">💡 Key Operational Objectives</div>
+                    <ul>
+                        <li><strong>Enforce Physical Presence:</strong> Technicians must be physically within the GPS geo-fenced radius (typically 100 meters) to interact with station hardware.</li>
+                        <li><strong>Real-time Telemetry Verification:</strong> Live 3-phase AC voltage, current, and pod statuses to prevent electrical safety hazards.</li>
+                        <li><strong>Audit Trail &amp; Deflection:</strong> Mandatory comments and resolution tracking, with the ability to escalate (deflect) unresolvable hardware faults to central maintenance.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- SECTION 2: Geofence Lifecycle (4 States) with Directional Flow Arrows -->
+            <section id="geofence">
+                <h2>2. Complete Geofence Lifecycle (4 Sequential States)</h2>
+                <p>The location engine enforces physical safety by calculating Haversine distance from the station. Below is the <strong>complete 4-stage lifecycle</strong> showing how the UI transforms as the technician travels to the station, checks in, and encounters boundary breaches:</p>
+
+                <div class="exhibit-container">
+                    <div class="exhibit-header">
+                        <div class="exhibit-title">
+                            <span>🚀</span>
+                            <span>Exhibit A: End-to-End Geofence State Machine</span>
+                        </div>
+                        <span class="status-lozenge status-info">4-Stage Pipeline</span>
+                    </div>
+
+                    <div class="flow-gallery">
+                        <!-- Step 1: Away -->
+                        <div class="flow-step-item">
+                            <div class="phone-mockup">
+                                <span class="floating-pill pill-danger">
+                                    <span>📍</span> Step 1: Distance &gt; 100m
+                                </span>
+                                <img src="assets/media_1791445853955.png" class="phone-screen" onclick="openLightbox(this.src)" alt="Away from location state">
+                                <div class="phone-caption">
+                                    <span class="status-lozenge status-danger">Out of Range</span>
+                                </div>
+                            </div>
+                            <div class="floating-pointer-box">
+                                <span class="arrow-indicator">➔</span>
+                                <div>
+                                    <strong>Away from location</strong><br>
+                                    Disabled outline button <code>⊘</code> prevents ghost tasks.
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Arrow 1 to 2 -->
+                        <div class="flow-arrow">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                                <polyline points="12 5 19 12 12 19"></polyline>
+                            </svg>
+                        </div>
+
+                        <!-- Step 2: In Range (Ready to Check-in) -->
+                        <div class="flow-step-item">
+                            <div class="phone-mockup">
+                                <span class="floating-pill pill-purple">
+                                    <span>🎯</span> Step 2: Within 100m
+                                </span>
+                                <img src="assets/media_1791448206676.jpg" class="phone-screen" onclick="openLightbox(this.src)" alt="Within range check in state">
+                                <div class="phone-caption">
+                                    <span class="status-lozenge status-info">Ready to Check In</span>
+                                </div>
+                            </div>
+                            <div class="floating-pointer-box" style="border-left-color: #6554C0;">
+                                <span class="arrow-indicator" style="color:#6554C0;">➔</span>
+                                <div>
+                                    <strong>Active "Check In"</strong><br>
+                                    Solid black button enables upon GPS validation.
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Arrow 2 to 3 -->
+                        <div class="flow-arrow">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                                <polyline points="12 5 19 12 12 19"></polyline>
+                            </svg>
+                        </div>
+
+                        <!-- Step 3: Checked In -->
+                        <div class="flow-step-item">
+                            <div class="phone-mockup">
+                                <span class="floating-pill pill-success">
+                                    <span>✅</span> Step 3: Verified
+                                </span>
+                                <img src="assets/media_1791445816173.png" class="phone-screen" onclick="openLightbox(this.src)" alt="Checked in state">
+                                <div class="phone-caption">
+                                    <span class="status-lozenge status-success">Checked In</span>
+                                </div>
+                            </div>
+                            <div class="floating-pointer-box" style="border-left-color: #00875A;">
+                                <span class="arrow-indicator" style="color:#00875A;">➔</span>
+                                <div>
+                                    <strong>Full Access Granted</strong><br>
+                                    Solid green button <code>#059669</code>. Diagnostics unlocked!
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Arrow 3 to 4 -->
+                        <div class="flow-arrow">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                                <polyline points="12 5 19 12 12 19"></polyline>
+                            </svg>
+                        </div>
+
+                        <!-- Step 4: Breach Warning -->
+                        <div class="flow-step-item">
+                            <div class="phone-mockup">
+                                <span class="floating-pill pill-warning">
+                                    <span>⚠️</span> Step 4: Boundary Breach
+                                </span>
+                                <img src="assets/media_1791445853938.png" class="phone-screen" onclick="openLightbox(this.src)" alt="Checkout Warning Banner">
+                                <div class="phone-caption">
+                                    <span class="status-lozenge status-warning">Countdown Alert</span>
+                                </div>
+                            </div>
+                            <div class="floating-pointer-box" style="border-left-color: #FF8B00;">
+                                <span class="arrow-indicator" style="color:#FF8B00;">➔</span>
+                                <div>
+                                    <strong>Auto-Checkout Warning</strong><br>
+                                    Pink animated fill banner: <em>Checking out in X secs...</em>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <table class="confluence-table">
+                    <thead>
+                        <tr>
+                            <th>State</th>
+                            <th>UI Behavior</th>
+                            <th>Allowed Actions</th>
+                            <th>Technical Trigger</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>1. Away from Location</strong></td>
+                            <td>Outlined button with prohibition icon ⊘, grey border, unclickable.</td>
+                            <td>View-only task metadata. Cannot check in or resolve issues.</td>
+                            <td><code>distanceInMeters &gt; radius</code></td>
+                        </tr>
+                        <tr>
+                            <td><strong>2. Within Range (Ready)</strong></td>
+                            <td>Solid black primary "Check In" button enabled with location pin icon.</td>
+                            <td>Tap "Check In" to send GPS coordinates to backend.</td>
+                            <td><code>distanceInMeters ≤ radius &amp;&amp; !isCheckedIn</code></td>
+                        </tr>
+                        <tr>
+                            <td><strong>3. Checked In</strong></td>
+                            <td>Solid green container <code>#059669</code> with location pin icon and "Checked In" label.</td>
+                            <td>Full access to pod details, battery diagnostics, issue resolution.</td>
+                            <td><code>isCheckedIn == true</code></td>
+                        </tr>
+                        <tr>
+                            <td><strong>4. Out of Range Breach</strong></td>
+                            <td>Sticky top red border card with animated pink background fill: <em>"Seems like you're out of location range. Checking out in X secs..."</em></td>
+                            <td>Move back within 100m to cancel timer, or session auto terminates.</td>
+                            <td><code>isLocationCheckoutRunning == true</code></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- SECTION 3: YCU Health & Telemetry -->
+            <section id="station-status">
+                <h2>3. YCU Status &amp; 3-Phase Electrical Telemetry</h2>
+                <p>Each station card provides high-density telemetry polled continuously from the station IoT controller via MQTT/HTTP:</p>
+
+                <div class="exhibit-container">
+                    <div class="exhibit-header">
+                        <div class="exhibit-title">
+                            <span>⚡</span>
+                            <span>Exhibit B: Telemetry &amp; Station Comparison</span>
+                        </div>
+                    </div>
+                    <div class="exhibit-grid">
+                        <div class="phone-mockup">
+                            <span class="floating-pill">
+                                <span>📍</span> Task 66 (PTP Office)
+                            </span>
+                            <img src="assets/media_1791445816173.png" class="phone-screen" onclick="openLightbox(this.src)" alt="Station Telemetry View">
+                            <div class="phone-caption">
+                                YN3B10056 • 7 Active | 0 Avail | 2 Fault
+                            </div>
+                        </div>
+
+                        <div class="phone-mockup">
+                            <span class="floating-pill pill-purple">
+                                <span>📍</span> Task 6928 (Marathahalli FKT)
+                            </span>
+                            <img src="assets/media_1791448206676.jpg" class="phone-screen" onclick="openLightbox(this.src)" alt="Marathahalli Telemetry">
+                            <div class="phone-caption">
+                                YN3C20205 • 8 Active | 1 Avail | 0 Fault
+                            </div>
+                        </div>
+
+                        <div class="exhibit-details">
+                            <h3>Key Telemetry Breakdown:</h3>
+                            <ul>
+                                <li><strong>YCU Serial &amp; Generation:</strong> <code>YN3B10056</code> / <code>YN3C20205</code> (Gen 3.0), red serial indicates active alert.</li>
+                                <li><strong>Power State:</strong> <span class="status-lozenge status-success">Power: ON</span> or <span class="status-lozenge status-danger">Power: OFF</span>.</li>
+                                <li><strong>Issue Lifecycle:</strong> Badges show <code>CLOSED</code>, <code>INPROGRESS</code>, <code>CREATED</code>, or <code>RESOLVED</code>.</li>
+                                <li><strong>Heartbeat:</strong> <code>Last ping: 30 secs ago</code> / <code>51 secs ago</code> with signal bar meter and connection state.</li>
+                                <li><strong>3-Phase Electrical Meter:</strong>
+                                    <table class="confluence-table" style="margin-top: 8px;">
+                                        <thead><tr><th>Phase</th><th>Voltage (V)</th><th>Current (A)</th><th>Power (kW)</th></tr></thead>
+                                        <tbody>
+                                            <tr><td>Phase 1 (R)</td><td>229.72 V</td><td>5.16 A</td><td>1.18 kW</td></tr>
+                                            <tr><td>Phase 2 (Y)</td><td>230.66 V</td><td>0.46 A</td><td>0.10 kW</td></tr>
+                                            <tr><td>Phase 3 (B)</td><td>228.47 V</td><td>3.44 A</td><td>0.78 kW</td></tr>
+                                        </tbody>
+                                    </table>
+                                </li>
+                                <li><strong>Pod Health Summary:</strong> 
+                                    <span style="color:#059669; font-weight:bold;">8 Active</span> | 
+                                    <span style="color:#4B5563; font-weight:bold;">1 Available</span> | 
+                                    <span style="color:#DC2626; font-weight:bold;">0 Fault</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 4: Station & Other Issues -->
+            <section id="other-issues">
+                <h2>4. Station-Level "Other Issues" Resolution</h2>
+                <p>Outside of pod-specific faults, technicians encounter general station issues (e.g., physical damage, testing overrides, HVAC failures, enclosure vandalism). These appear in the <strong>Other Issues</strong> list below the telemetry cards.</p>
+
+                <div class="exhibit-container">
+                    <div class="exhibit-header">
+                        <div class="exhibit-title">
+                            <span>📝</span>
+                            <span>Exhibit C: Other Issue Comment &amp; Resolution Workflow</span>
+                        </div>
+                    </div>
+                    <div class="exhibit-grid">
+                        <div class="phone-mockup">
+                            <span class="floating-pill pill-purple">
+                                <span>✍️</span> Inline Form
+                            </span>
+                            <img src="assets/media_1791445816172.png" class="phone-screen" onclick="openLightbox(this.src)" alt="Other issues resolution form">
+                            <div class="phone-caption">
+                                Selecting "yuma 1" expands the comment form (0/120 chars)
+                            </div>
+                        </div>
+                        <div class="exhibit-details">
+                            <div class="step-container">
+                                <div class="step-num">1</div>
+                                <div class="step-content">
+                                    <div class="step-title">Select Issue Checkbox</div>
+                                    <p>Tap the checkbox next to the reported issue (e.g., <code>yuma 1</code>). Only one issue can be actively expanded at a time.</p>
+                                </div>
+                            </div>
+                            <div class="step-container">
+                                <div class="step-num">2</div>
+                                <div class="step-content">
+                                    <div class="step-title">Enter Resolution Note (Mandatory)</div>
+                                    <p>The inline text box opens with a max limit of 120 characters. If submitted blank, an error warning appears: <em>"please tell us how you resolved this."</em></p>
+                                </div>
+                            </div>
+                            <div class="step-container">
+                                <div class="step-num">3</div>
+                                <div class="step-content">
+                                    <div class="step-title">Submit "Resolve issue"</div>
+                                    <p>Tap the black "Resolve issue" button. Note: Button is disabled if the technician has not Checked In!</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 5: Pod Matrix & Status Colors -->
+            <section id="pod-matrix">
+                <h2>5. Pod Matrix, Color Codes &amp; Iconography</h2>
+                <p>Tapping any YCU card opens the <strong>Pod Details Screen</strong>. Station models support either <strong>9 Pods (3x3 grid)</strong> or <strong>12 Pods (4x3 grid)</strong> configurations. Each slot gives instant visual feedback through distinct color palettes and icons defined in <code>PodStatus</code>:</p>
+
+                <div class="exhibit-container">
+                    <div class="exhibit-header">
+                        <div class="exhibit-title">
+                            <span>🔋</span>
+                            <span>Exhibit D: 9-Pod vs Empty Slots vs 12-Pod Layouts</span>
+                        </div>
+                    </div>
+                    <div class="exhibit-grid">
+                        <div class="phone-mockup">
+                            <span class="floating-pill pill-danger">9 Pods • Mixed</span>
+                            <img src="assets/media_1791445816184.png" class="phone-screen" onclick="openLightbox(this.src)" alt="9-Pod Layout with faults">
+                            <div class="phone-caption">
+                                <span class="status-lozenge status-danger">9 Pods</span><br>
+                                Faulty &amp; Bin Issue Grid
+                            </div>
+                        </div>
+                        <div class="phone-mockup">
+                            <span class="floating-pill">Dashed • Empty Slots</span>
+                            <img src="assets/media_1791445853956.png" class="phone-screen" onclick="openLightbox(this.src)" alt="Pods with No Battery">
+                            <div class="phone-caption">
+                                <span class="status-lozenge status-info">YN3B00017</span><br>
+                                Empty Slots (NO BATTERY)
+                            </div>
+                        </div>
+                        <div class="phone-mockup">
+                            <span class="floating-pill pill-warning">12 Pods • Frozen</span>
+                            <img src="assets/media_1791445853957.png" class="phone-screen" onclick="openLightbox(this.src)" alt="12 Pods Station">
+                            <div class="phone-caption">
+                                <span class="status-lozenge status-warning">12 Pods</span><br>
+                                POD FROZEN &amp; 12-Pod Station
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Color Code Specification Table -->
+                <table class="confluence-table">
+                    <thead>
+                        <tr>
+                            <th>Pod State</th>
+                            <th>Visual Styling</th>
+                            <th>Icon</th>
+                            <th>Indicator &amp; Metrics</th>
+                            <th>Technical Condition</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>CHARGED</strong></td>
+                            <td><span class="color-chip chip-charged">BG: #ECFDF5 | Text: #059669</span></td>
+                            <td>🔒 Lock / ⚠️ Alert</td>
+                            <td>Green progress bar + SOC % (e.g. 100%)</td>
+                            <td><code>bmsPcbId != "" &amp;&amp; chargeState == "Charged"</code></td>
+                        </tr>
+                        <tr>
+                            <td><strong>CHARGING</strong></td>
+                            <td><span class="color-chip chip-charging">BG: #E8F0FA | Text: #156CCF</span></td>
+                            <td>🔒 Lock</td>
+                            <td>Blue progress bar + SOC % (e.g. 86%)</td>
+                            <td><code>bmsPcbId != "" &amp;&amp; chargeState == "Charging"</code></td>
+                        </tr>
+                        <tr>
+                            <td><strong>POD FAULTY</strong></td>
+                            <td><span class="color-chip chip-faulty">BG: #FEF2F2 | Text: #B91C1C</span></td>
+                            <td>⚠️ Warning Triangle</td>
+                            <td>Dark red progress bar + SOC % (e.g. 99%, 100%)</td>
+                            <td><code>isPodFaulty == true</code></td>
+                        </tr>
+                        <tr>
+                            <td><strong>POD FROZEN</strong></td>
+                            <td><span class="color-chip chip-frozen">BG: #FEFCE8 | Text: #A16207</span></td>
+                            <td>⊘ Blocked / 🔒 Lock</td>
+                            <td>Olive-yellow bar + SOC % (e.g. 0%, 100%)</td>
+                            <td><code>isPodFrozen == true</code></td>
+                        </tr>
+                        <tr>
+                            <td><strong>BATTERY BIN ISSUE</strong></td>
+                            <td><span class="color-chip chip-bin">BG: #FFF7ED | Text: #EA580C</span></td>
+                            <td>🔒 Lock / ⊘ Blocked</td>
+                            <td>Orange bar + <code>255%</code> (BMS communication loss code)</td>
+                            <td><code>bmsPcbId != "" &amp;&amp; socPercent != ""</code></td>
+                        </tr>
+                        <tr>
+                            <td><strong>NO BATTERY</strong></td>
+                            <td><span class="color-chip chip-nobatt">Dashed Border: #111827 | Text: #98A2B3</span></td>
+                            <td>🔒 Lock</td>
+                            <td>Grey placeholder track, no percentage text</td>
+                            <td><code>bmsPcbId == ""</code> (Empty Pod slot)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- SECTION 6: Pod & Battery Diagnostics -->
+            <section id="pod-diagnostics">
+                <h2>6. Pod &amp; Battery Diagnostics Deep-Dive</h2>
+                <p>Tapping on any individual Pod card triggers a modal bottom-sheet with two dedicated analytical tabs: <strong>Pod issues</strong> and <strong>Battery diagnostics</strong>.</p>
+
+                <div class="exhibit-container">
+                    <div class="exhibit-header">
+                        <div class="exhibit-title">
+                            <span>🔍</span>
+                            <span>Exhibit E: Bottom Sheet Diagnostic Tabs (Pod 4 Example)</span>
+                        </div>
+                    </div>
+                    <div class="exhibit-grid">
+                        <div class="phone-mockup">
+                            <span class="floating-pill">Tab 1: Pod Issues</span>
+                            <img src="assets/media_1791445816174.png" class="phone-screen" onclick="openLightbox(this.src)" alt="Pod Issues Tab">
+                            <div class="phone-caption">
+                                Tab 1: Pod issues (e.g. "Battery not charging")
+                            </div>
+                        </div>
+                        <div class="phone-mockup">
+                            <span class="floating-pill pill-success">Tab 2: Telemetry</span>
+                            <img src="assets/media_1791445853939.png" class="phone-screen" onclick="openLightbox(this.src)" alt="Battery Diagnostics Tab">
+                            <div class="phone-caption">
+                                Tab 2: Real-time BMS Telemetry
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h3>Telemetry Parameters Explained:</h3>
+                <table class="confluence-table">
+                    <thead>
+                        <tr>
+                            <th>Parameter</th>
+                            <th>Observed Value</th>
+                            <th>Significance for Technicians</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Charge State</strong></td>
+                            <td><span style="color:#2563EB; font-weight:bold;">Charged</span> / Charging</td>
+                            <td>Current charging cycle status controlled by internal charger.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>QR Code / Serial</strong></td>
+                            <td><code>ET077355</code></td>
+                            <td>Physical battery barcode. Match with battery label before swapping.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Battery Temperature</strong></td>
+                            <td><code>27.25 °C</code></td>
+                            <td>Thermal safety check. &gt; 55°C indicates overheating/thermal runaway danger.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Battery Generation</strong></td>
+                            <td><code>GEN 4</code> / <code>GEN 5</code></td>
+                            <td>Identifies battery chemistry and pin compatibility.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>SOC (State of Charge)</strong></td>
+                            <td><span style="color:#059669; font-weight:bold;">99 %</span></td>
+                            <td>Usable stored electrical charge in percentage.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Health (SOH)</strong></td>
+                            <td><code>98 %</code></td>
+                            <td>State of Health. Batteries &lt; 70% SOH must be flagged for retirement.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- SECTION 7: Resolution & Deflection SOP -->
+            <section id="resolution-deflect">
+                <h2>7. Resolution &amp; Deflection Standard Operating Procedure (SOP)</h2>
+                <p>At the bottom of the Pod Details Screen, technicians have two primary call-to-actions: <strong>DEFLECT</strong> and <strong>RESOLVE</strong>.</p>
+
+                <div class="exhibit-container">
+                    <div class="exhibit-header">
+                        <div class="exhibit-title">
+                            <span>🛡️</span>
+                            <span>Exhibit F: Dual Action Button States &amp; General Issues</span>
+                        </div>
+                    </div>
+                    <div class="exhibit-grid">
+                        <div class="phone-mockup">
+                            <span class="floating-pill">Resolve Only</span>
+                            <img src="assets/media_1791445853957.png" class="phone-screen" onclick="openLightbox(this.src)" alt="Resolve Enabled">
+                            <div class="phone-caption">
+                                <span class="status-lozenge status-info">Resolve Only</span><br>
+                                Resolve Active (Black), Deflect Disabled (Pink)
+                            </div>
+                        </div>
+                        <div class="phone-mockup">
+                            <span class="floating-pill pill-danger">Both Active (Red + Black)</span>
+                            <img src="assets/media_1791445876310.png" class="phone-screen" onclick="openLightbox(this.src)" alt="Both Enabled">
+                            <div class="phone-caption">
+                                <span class="status-lozenge status-danger">Both Active</span><br>
+                                DEFLECT (Active Red) + RESOLVE (Active Black)
+                            </div>
+                        </div>
+                        <div class="phone-mockup">
+                            <span class="floating-pill pill-warning">General Issues List</span>
+                            <img src="media_1791445876319.png" class="phone-screen" onclick="openLightbox(this.src)" alt="Assisted Mode Issue">
+                            <div class="phone-caption">
+                                <span class="status-lozenge status-warning">Issues</span><br>
+                                "Assisted mode not working"
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tip-panel">
+                    <div class="panel-title">🛡️ Button State Logic Matrix</div>
+                    <ul>
+                        <li><strong>DEFLECT Button (Red):</strong> Enabled <em>ONLY</em> if <code>isAnyIssueSelected &amp;&amp; toDeflect</code>. If the backend task allows deflection (e.g. requires L2 engineer, mechanical replacement, PCB burn), the button turns bright red (<code>#DC2626</code>). Otherwise, it remains muted pink (<code>#E9B2B2</code>).</li>
+                        <li><strong>RESOLVE Button (Black):</strong> Enabled as long as <em>any</em> issue (general issue or pod issue) is checked. Turns solid black (<code>#000000</code>). During submission, it shows a smooth wavy linear loading animation.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- SECTION 8: Technical Specs & APIs -->
+            <section id="tech-specs">
+                <h2>8. Technical Architecture &amp; API Contracts</h2>
+                <p>The module follows Google Clean Architecture with Jetpack Compose Material3, Kotlin Coroutines, and Hilt dependency injection.</p>
+
+                <table class="confluence-table">
+                    <thead>
+                        <tr>
+                            <th>Endpoint</th>
+                            <th>Method</th>
+                            <th>Payload / Query</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>charging-unit/cu-alerts/tasks-details</code></td>
+                            <td><span class="status-lozenge status-info">GET</span></td>
+                            <td><code>task_id: Int</code></td>
+                            <td>Fetches station geofence radius, issues list, and station metadata.</td>
+                        </tr>
+                        <tr>
+                            <td><code>charging-unit/cu-alerts/ycu-details</code></td>
+                            <td><span class="status-lozenge status-info">GET</span></td>
+                            <td><code>task_id: Int</code></td>
+                            <td>Fetches 3-phase electrical readings and YCU controller state.</td>
+                        </tr>
+                        <tr>
+                            <td><code>charging-unit/cu-alerts/tasks-checkin</code></td>
+                            <td><span class="status-lozenge status-success">POST</span></td>
+                            <td>
+                                <code>{ "currentLatitude": Double, "currentLongitude": Double, "taskId": Int }</code>
+                            </td>
+                            <td>Verifies GPS coordinates and registers on-site technician check-in.</td>
+                        </tr>
+                        <tr>
+                            <td><code>charging-unit/cu-alerts/tasks-resolve</code></td>
+                            <td><span class="status-lozenge status-success">POST</span></td>
+                            <td>
+                                <code>{ "resolveIds": [Int], "resolveType": Int, "taskId": Int, "description": String }</code>
+                            </td>
+                            <td>Resolves either Other Issues (type=1) or Pod/General Issues (type=2).</td>
+                        </tr>
+                        <tr>
+                            <td><code>charging-unit/cu-alerts/tasks-deflect</code></td>
+                            <td><span class="status-lozenge status-danger">POST</span></td>
+                            <td>
+                                <code>{ "deflectedIds": [Int], "taskId": Int }</code>
+                            </td>
+                            <td>Escalates issues to higher maintenance tier.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+        </main>
+    </div>
+
+    <!-- Lightbox Modal for Fullscreen Image Zoom -->
+    <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+        <span class="lightbox-close">×</span>
+        <img id="lightbox-img" class="lightbox-img" src="" alt="Zoomed screenshot">
+    </div>
+
+    <script>
+        function openLightbox(src) {
+            const lb = document.getElementById('lightbox');
+            const img = document.getElementById('lightbox-img');
+            img.src = src;
+            lb.classList.add('active');
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.remove('active');
+        }
+    </script>
+
+</body></html>
